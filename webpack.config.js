@@ -5,6 +5,7 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
+// Verifica o modo de execução
 module.exports = {
     mode: modoDev ? 'development' : 'production',
     entry: './src/index.js',
@@ -43,9 +44,11 @@ module.exports = {
                 'sass-loader',
             ]
         }, {
+            //Regras de imagens 
             test: /\.(png|svg|jpg|gif)$/,
             use: ['file-loader']
         }, {
+            //regras de fontes 
             test: /.(ttf|otf|eot|svg|woff(2)?)$/,
             use: ['file-loader']
         }]
